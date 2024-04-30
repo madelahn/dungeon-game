@@ -1,0 +1,119 @@
+Guild Management
+
+Gameplay
+	Tycoon
+	Management
+	Recruit people and send them on missions
+	Make people do stuff
+	UI heavy
+	Event popup
+
+Microtransactions 
+	Customize adventurers
+	Speed up expeditions
+	Customize guild appearance
+
+Staff
+	Guild Leader (MC - retired adventurer (Legend)) - Any race/class, customizable
+	Receptionist (helper?)
+
+Create a Guild
+	Name
+	Choose Type? Specialization?
+		Pathways
+		Dependent on story/
+	Prestige starts at 0 Ranking/Level
+		Higher prestige, unlock upgrades
+		Better / higher leveled adventurers requesting to join
+		Better / higher leveled missions requests
+	Guild Money / Expenses
+		Upgrades
+			Guild Size
+			Guild Appearance
+			Adventurers Capacity
+			Facilities
+				Adventurer Support
+					Training
+						Leveling stats
+						Gain/Loss of traits
+					Healing / Therapy
+						Physical
+						Mental
+						Social
+				Stores
+					Equipment
+					Consumables
+					Clothes
+					Gifts
+				Bank
+				Trader Association
+				Farm?
+				Ranch?
+					To sell/loan out creatures
+					Companions
+					Mounts
+					Pets
+				Entertainment
+					Bar / Pub / Restaurant
+					Karaoke
+
+Adventurers
+	Class
+		Warrior
+			Knight
+			Paladin
+			Samurai
+		Mage
+			Warlock
+			Cleric
+			Druid / Nature
+		Rogue
+			Thief
+			Assassin
+			Hunter
+		Specialized Classes (Special NPC?)
+			Hero
+			Bard
+			Demon Lord
+	Individual stats
+		Stats can be raised overtime
+	Specific traits 
+		Can be positive or negative
+		Can't easily be changed
+		May already have it when recruited
+		Chance to gain trait from specific missions
+	Diversity in Adventurers
+		Different races
+			Human - alt name?
+			Elf
+			Dwarf
+			Beastfolk
+			Demon?
+		Each has culture
+			Leaning specialization for class/profession/job
+			Leaning relationship/bonds
+	Some individuals, some parties join
+		You may put some of them together
+		Each has a bond with each other?
+		Overall guild bond
+
+Missions / Expeditions
+	Difficulty system - F, E, D, C, B, A, S
+		Rise in difficulty - rise in reward and prestige
+		Higher risk of severe injury, trauma (potentially death?)
+		Time variation throughout, but usually higher difficulty = longer
+	Completion = Full Exp gained
+	Failure = Exp 50%
+	Mission Types
+		Delivery
+		Monster slaying
+		Collection
+		Escort
+		Find and Rescue
+		Exploration
+
+
+
+
+
+
