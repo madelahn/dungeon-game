@@ -1,7 +1,7 @@
 class_name pawn
 
 var _class = load("res://Classes/subclass.gd")
-var _trait = load("res://traits.gd")
+var _trait = load("res://PawnData/Traits/traits.gd")
 
 var NAME : String = ""
 var ID : int
@@ -19,12 +19,14 @@ var status
 var equipment
 
 # Class Functions
-func _init(name, id):
+func _init(name, id, personality):
 	NAME = name
 	ID = id
+	TRAIT = personality
+	
 
 
-func get_base_stats():
+func get_base_stats() -> void:
 	BASE_ATK = CLASS.get_atk_modifier() + TRAIT.ATK_MOD
 	BASE_DEF = CLASS.get_def_modifier() + TRAIT.MGC_MOD
 	BASE_MGC = CLASS.get_mgc_modifier() + TRAIT.MGC_MOD
