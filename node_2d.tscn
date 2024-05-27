@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg3dsffjjb283"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_ilqxb"]
+[ext_resource type="Texture2D" uid="uid://dlp7huwgu5bax" path="res://Assets/Images/icon.svg" id="2_mn53c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4epbl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mn53c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ilqxb")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 80)
+layout_direction = 1
+offset_left = 433.0
+offset_top = 138.0
+offset_right = 639.0
+offset_bottom = 218.0
+text = "Enter"
+
+[node name="intext" type="TextEdit" parent="."]
+custom_minimum_size = Vector2(180, 80)
+offset_left = 400.0
+offset_top = 40.0
+offset_right = 689.0
+offset_bottom = 120.0
+placeholder_text = "Enter name"
+
+[node name="Pawn" type="AnimatedSprite2D" parent="." groups=["Pawns"]]
+position = Vector2(540, 368)
+scale = Vector2(1.40894, 1.39021)
+sprite_frames = SubResource("SpriteFrames_4epbl")
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 441.0
+offset_top = 533.0
+offset_right = 656.0
+offset_bottom = 581.0
+text = "Save"
+
+[connection signal="button_up" from="Button" to="." method="_on_print_name"]
+[connection signal="button_up" from="Button2" to="." method="_on_button_2_button_up"]
