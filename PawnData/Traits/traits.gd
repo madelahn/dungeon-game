@@ -5,6 +5,8 @@ var ATK_MOD : int
 var MGC_MOD : int
 var DEF_MOD : int
 
+# consider using weighted graph DS to better represent each trait & their relationships to others
+
 func _init(name):
 	TRAIT = name
 

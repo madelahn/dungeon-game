@@ -19,38 +19,7 @@ func _on_button_2_button_up():
 	var selected_trait = get_trait(selection)
 	var id = get_new_id()
 	var new_pawn = pawn.new(input, id, selected_trait)
-	save_pawn(new_pawn)
-
-
-func save_pawn(new_pawn):
-	var file
-	if (FileAccess.file_exists("res://pawns.json")):
-		file = FileAccess.open("res://pawns.json", FileAccess.READ_WRITE)
-		print("Adding new pawn")
-		file.seek_end(-3)
-		
-		file.store_line(
-			"\n\"" + str(new_pawn.ID) + "\": " \
-			+ "{\"name\": " \
-			+ "\"" + new_pawn.NAME + "\"," \
-			+ "\"trait\": " \
-			+ " \"" + new_pawn.TRAIT.TRAIT + "\"}," \
-			+ "\n}"
-		)
-		
-	else:
-		file = FileAccess.open("res://pawns.json", FileAccess.WRITE)
-		print("Making new pawns file!")
-		file.store_line(
-			"{\n" \
-			+ "\"" + str(new_pawn.ID) + "\": " \
-			+ "{\"name\": " \
-			+ "\"" + new_pawn.NAME + "\"," \
-			+ " \"trait\": " \
-			+ "\"" + new_pawn.TRAIT.TRAIT + "\"}," \
-			+ "\n}"
-		)
-	file.close()
+	new_pawn.save_to_json()
 
 
 func get_new_id():
@@ -61,6 +30,7 @@ func get_new_id():
 		var thing: Dictionary = JSON.parse_string(json)
 		return thing.size()
 
+
 func get_trait(selected_trait) -> pawn_trait:
 	var file = FileAccess.get_file_as_string("res://PawnData/Traits/traitinstances.json")
 	var json_as_dict = JSON.parse_string(file)
@@ -68,6 +38,7 @@ func get_trait(selected_trait) -> pawn_trait:
 		if key == str(selected_trait):
 			return pawn_trait.new(json_as_dict[key].TRAIT)
 	return null
+
 
 func _on_print_name():
 	var input = get_node("intext").text
