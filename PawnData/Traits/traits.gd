@@ -11,7 +11,7 @@ func _init(name):
 	TRAIT = name
 
 func get_trait(selected_trait) -> pawn_trait:
-	var file = FileAccess.open("res://PawnData/Traits/traitinstances.json", FileAccess.READ)
+	var file = FileAccess.open("res://PawnData/Traits/trait_instances.json", FileAccess.READ)
 	var json_as_dict = JSON.parse_string(file)
 	for key in json_as_dict:
 		print(key)
