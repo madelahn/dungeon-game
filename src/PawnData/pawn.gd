@@ -1,7 +1,7 @@
 class_name pawn
 
-var _class = load("res://Classes/subclass.gd")
-var _trait = load("res://PawnData/Traits/traits.gd")
+var _class = load("res://src/PawnData/Classes/subclass.gd")
+var _trait = load("res://src/PawnData/Traits/traits.gd")
 
 var NAME : String = ""
 var ID : int

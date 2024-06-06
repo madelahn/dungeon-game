@@ -1,7 +1,7 @@
 extends Node2D
 
-var pawn = load("res://PawnData/pawn.gd")
-var char = load("res://PawnData/Traits/traits.gd")
+var pawn = load("res://src/PawnData/pawn.gd")
+var char = load("res://src/PawnData/Traits/traits.gd")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,7 +32,7 @@ func get_new_id():
 
 
 func get_trait(selected_trait) -> pawn_trait:
-	var file = FileAccess.get_file_as_string("res://PawnData/Traits/traitinstances.json")
+	var file = FileAccess.get_file_as_string("res://src/PawnData/Traits/traitinstances.json")
 	var json_as_dict = JSON.parse_string(file)
 	for key in json_as_dict:
 		if key == str(selected_trait):

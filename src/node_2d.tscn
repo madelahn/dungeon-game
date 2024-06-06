@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://cg3dsffjjb283"]
 
-[ext_resource type="Script" path="res://node_2d.gd" id="1_ilqxb"]
-[ext_resource type="Texture2D" uid="uid://dlp7huwgu5bax" path="res://Assets/Images/icon.svg" id="2_mn53c"]
+[ext_resource type="Script" path="res://src/node_2d.gd" id="1_fs8h6"]
+[ext_resource type="Texture2D" uid="uid://dlp7huwgu5bax" path="res://src/Assets/Images/icon.svg" id="2_bmgeu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4epbl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_mn53c")
+"texture": ExtResource("2_bmgeu")
 }],
 "loop": true,
 "name": &"default",
@@ -20,7 +20,7 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_ilqxb")
+script = ExtResource("1_fs8h6")
 
 [node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 80)

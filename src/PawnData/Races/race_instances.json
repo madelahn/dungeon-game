@@ -1,0 +1,18 @@
+{
+	"0" : {
+		"RACE_NAME" : "Human",
+		"ATK_MOD" : "0",
+		"DEF_MOD" : "0",
+		"MGC_MOD" : "0"
+		},
+		
+	"1" : {
+		"RACE_NAME" : "Elf",
+		"ATK_MOD" : "0",
+		"DEF_MOD" : "0",
+		"MGC_MOD" : "0"
+		},
+	"2" : {
+		
+	}
+}
