@@ -1,5 +1,6 @@
 class_name pawn
 
+
 var _class = load("res://src/PawnData/Classes/subclass.gd")
 var _trait = load("res://src/PawnData/Traits/traits.gd")
 
@@ -50,6 +51,7 @@ func save_to_json() -> void:
 			+ "\n}"
 		)
 	file.close()
+
 
 func get_pawn_string(pawn) -> String:
 	return ("\n\"" + str(ID) + "\": " \

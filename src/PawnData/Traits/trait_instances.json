@@ -7,6 +7,9 @@
 		},
 		
 	"1" : {
-		
+		"TRAIT" : "Serious",
+		"ATK_MOD" : "0",
+		"DEF_MOD" : "0",
+		"MGC_MOD" : "0"
 	}
 }
