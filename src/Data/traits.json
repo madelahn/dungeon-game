@@ -1,0 +1,18 @@
+{
+	"depressed": {
+		"name": "Depressed",
+		"baseStats": {
+			"atk": 0,
+			"def": 0,
+			"mgc": 0
+		}
+	},
+	"stinky": {
+		"name": "Stinky",
+		"baseStats": {
+			"atk": 0,
+			"def": 0,
+			"mgc": 0
+		}
+	}
+}

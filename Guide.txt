@@ -111,9 +111,3 @@ Missions / Expeditions
 		Escort
 		Find and Rescue
 		Exploration
-
-
-
-
-
-

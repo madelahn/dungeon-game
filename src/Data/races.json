@@ -1,0 +1,26 @@
+{
+	"human": {
+		"name": "Human",
+		"baseStats": {
+			"atk": 0,
+			"def": 0,
+			"mgc": 0
+		}
+	},
+	"elf": {
+		"name": "Elf",
+		"baseStats": {
+			"atk": 0,
+			"def": 0,
+			"mgc": 0
+		}
+	},
+	"dwarf": {
+		"name": "Dwarf",
+		"baseStats": {
+			"atk": 0,
+			"def": 0,
+			"mgc": 0
+		}
+	},
+}

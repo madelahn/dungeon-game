@@ -1,4 +1,13 @@
 {
-"0": {"name": "asd","trait": "Cheery"},
-"1": {"name": "we", "trait": "Cheery"},
+	"4849d159-5939-41f5-a1a3-94f991db7972": {
+		"classId": "mage",
+		"id": "4849d159-5939-41f5-a1a3-94f991db7972",
+		"level": 1,
+		"name": "Heise",
+		"raceId": "elf",
+		"status": "Neutral",
+		"subclassId": "cleric",
+		"team": "none",
+		"traitId": "stinky"
+	}
 }
