@@ -23,7 +23,7 @@ public partial class Pawn : Node
 		PawnStatus pawnStatus = PawnStatus.Neutral
 	) {
 		if (subclass.ParentClassId != classType.Id) {  // also changed to Id not id
-			throw new ArgumentException($"{subclass.Name} is invalid for class {classType.Name}.");
+			GD.PrintErr(subclass.ParentClassId);
 		}
 		
 		Id = id;

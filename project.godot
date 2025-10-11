@@ -14,6 +14,12 @@ config/name="Adventure Guild Management Simulator"
 config/features=PackedStringArray("4.5", "C#", "Mobile")
 config/icon="res://src/Assets/Images/icon.svg"
 
+[autoload]
+
+DataLoader="*res://src/Scripts/Data/Save/DataLoader.cs"
+SaveManager="*res://src/Scripts/Data/Save/SaveManager.cs"
+NewGameManager="*res://src/Scripts/Data/Save/NewGameManager.cs"
+
 [dotnet]
 
 project/assembly_name="Adventure Guild Management Simulator"

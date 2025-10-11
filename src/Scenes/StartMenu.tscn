@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://bggmtfvfftn5y"]
+
+[ext_resource type="Script" uid="uid://dxdnsp02ggoyk" path="res://src/Scenes/StartMenu.cs" id="1_aj22g"]
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Load" type="Button" parent="."]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 407.0
+offset_right = 666.0
+offset_bottom = 493.0
+text = "Load Game"
+script = ExtResource("1_aj22g")
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 290.0
+offset_right = 666.0
+offset_bottom = 376.0
+text = "New Game"
+script = ExtResource("1_aj22g")
+
+[connection signal="pressed" from="Load" to="Load" method="_on_load_button"]
+[connection signal="pressed" from="Start" to="Start" method="_on_start_button"]

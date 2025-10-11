@@ -1,7 +1,25 @@
 {
-	"berserker": {
-		"name": "Berserker",
-		"parentClass": "warrior",
+	"knight": {
+		"name": "Knight",
+		"parentClassId": "warrior",
+		"statModifiers": {
+			"atk": 0,
+			"def": 0,
+			"mgc": 0
+		}
+	},
+	"paladin": {
+		"name": "Paladin",
+		"parentClassId": "warrior",
+		"statModifiers": {
+			"atk": 0,
+			"def": 0,
+			"mgc": 0
+		}
+	},
+	"samurai": {
+		"name": "Samurai",
+		"parentClassId": "warrior",
 		"statModifiers": {
 			"atk": 0,
 			"def": 0,
@@ -10,7 +28,25 @@
 	},
 	"cleric": {
 		"name": "Cleric",
-		"parentClass": "mage",
+		"parentClassId": "mage",
+		"statModifiers": {
+			"atk": 0,
+			"def": 0,
+			"mgc": 0
+		}
+	},
+	"warlock": {
+		"name": "Warlock",
+		"parentClassId": "mage",
+		"statModifiers": {
+			"atk": 0,
+			"def": 0,
+			"mgc": 0
+		}
+	},
+	"thief": {
+		"name": "Thief",
+		"parentClassId": "rogue",
 		"statModifiers": {
 			"atk": 0,
 			"def": 0,

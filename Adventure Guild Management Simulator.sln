@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventure Guild Management Simulator", "Adventure Guild Management Simulator.csproj", "{AABDD070-F171-4C92-8C75-F7D13A4461B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adventure Guild Management Simulator", "Adventure Guild Management Simulator.csproj", "{43F5EE9D-DA57-4751-96FE-C23B1A84BCCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,11 +9,11 @@ Global
 	ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AABDD070-F171-4C92-8C75-F7D13A4461B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AABDD070-F171-4C92-8C75-F7D13A4461B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AABDD070-F171-4C92-8C75-F7D13A4461B4}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
-		{AABDD070-F171-4C92-8C75-F7D13A4461B4}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
-		{AABDD070-F171-4C92-8C75-F7D13A4461B4}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
-		{AABDD070-F171-4C92-8C75-F7D13A4461B4}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{43F5EE9D-DA57-4751-96FE-C23B1A84BCCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43F5EE9D-DA57-4751-96FE-C23B1A84BCCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43F5EE9D-DA57-4751-96FE-C23B1A84BCCC}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{43F5EE9D-DA57-4751-96FE-C23B1A84BCCC}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{43F5EE9D-DA57-4751-96FE-C23B1A84BCCC}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{43F5EE9D-DA57-4751-96FE-C23B1A84BCCC}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
 	EndGlobalSection
 EndGlobal

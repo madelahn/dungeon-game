@@ -6,36 +6,57 @@ using System.Linq;
 public partial class RandomPawn : Node2D
 {
 	private Pawn currentPawn;
+	private DataLoader dataLoader;
 	
-	private List<Race> allRaces = new List<Race>();
-	private List<Trait> allTraits = new List<Trait>();
-	private List<Class> allClasses = new List<Class>();
-	private List<Subclass> allSubclasses = new List<Subclass>();
+	private Dictionary<string, Race> allRaces;
+	private Dictionary<string, Trait> allTraits;
+	private Dictionary<string, Class> allClasses;
+	private Dictionary<string, Subclass> allSubclasses;
 	private List<string> allNames = new List<string>();
 	
 	public override void _Ready()
 	{
+		// Get the DataLoader autoload
+		dataLoader = GetNode<DataLoader>("/root/DataLoader");
+		
+		if (dataLoader == null)
+		{
+			GD.PrintErr("DataLoader not found!");
+			return;
+		}
+		
+		// Get data from DataLoader
+		allRaces = dataLoader.GetRaces();
+		allTraits = dataLoader.GetTraits();
+		allClasses = dataLoader.GetClasses();
+		allSubclasses = dataLoader.GetSubclasses();
+		
+		// Still load names from file
 		LoadNames();
-		LoadTraits();
-		LoadRaces();
-		LoadClasses();
-		LoadSubclasses();
+		
+		GD.Print($"Loaded {allRaces.Count} races, {allTraits.Count} traits, {allClasses.Count} classes, {allSubclasses.Count} subclasses, {allNames.Count} names");
 	}
 	
 	public override void _Process(double delta)
 	{
-		// Update UI with current pawn info
 		if (currentPawn != null)
 		{
 			GetNode<RichTextLabel>("generated_name").Text = currentPawn.Name;
 			GetNode<RichTextLabel>("generated_trait").Text = currentPawn.Trait.Name;
 			GetNode<RichTextLabel>("generated_race").Text = currentPawn.Race.Name;
+			GetNode<RichTextLabel>("generated_class").Text = currentPawn.Subclass.Name;
 		}
 	}
 	
 	private void LoadNames()
 	{
-		var nameFile = FileAccess.Open("res://src/Data/names.txt", FileAccess.ModeFlags.Read);
+		var nameFile = Godot.FileAccess.Open("res://src/Data/names.txt", Godot.FileAccess.ModeFlags.Read);
+		if (nameFile == null)
+		{
+			GD.PrintErr("Failed to load names.txt");
+			return;
+		}
+		
 		while (!nameFile.EofReached())
 		{
 			var line = nameFile.GetLine();
@@ -48,119 +69,39 @@ public partial class RandomPawn : Node2D
 		GD.Print($"Loaded {allNames.Count} names");
 	}
 	
-	private void LoadTraits()
-	{
-		var traitFile = FileAccess.Open("res://src/Data/traits.json", FileAccess.ModeFlags.Read);
-		var traitJson = traitFile.GetAsText();
-		traitFile.Close();
-		
-		var traitDict = Json.ParseString(traitJson).AsGodotDictionary();
-		
-		foreach (var key in traitDict.Keys)
-		{
-			var data = traitDict[key].AsGodotDictionary();
-			var trait = new Trait
-			{
-				Id = key.ToString(),
-				Name = data["name"].ToString(),
-				BaseStats = ParseStats(data["baseStats"].AsGodotDictionary())
-			};
-			allTraits.Add(trait);
-		}
-		GD.Print($"Loaded {allTraits.Count} traits");
-	}
-	
-	private void LoadRaces()
-	{
-		// Similar to LoadTraits but for races
-		var raceFile = FileAccess.Open("res://src/Data/races.json", FileAccess.ModeFlags.Read);
-		var raceJson = raceFile.GetAsText();
-		raceFile.Close();
-		
-		var raceDict = Json.ParseString(raceJson).AsGodotDictionary();
-		
-		foreach (var key in raceDict.Keys)
-		{
-			var data = raceDict[key].AsGodotDictionary();
-			var race = new Race
-			{
-				Id = key.ToString(),
-				Name = data["name"].ToString(),
-				BaseStats = ParseStats(data["baseStats"].AsGodotDictionary())
-			};
-			allRaces.Add(race);
-		}
-		GD.Print($"Loaded {allRaces.Count} races");
-	}
-	
-	private void LoadClasses()
-	{
-		var classFile = FileAccess.Open("res://src/Data/classes.json", FileAccess.ModeFlags.Read);
-		var classJson = classFile.GetAsText();
-		classFile.Close();
-		
-		var classDict = Json.ParseString(classJson).AsGodotDictionary();
-		
-		foreach (var key in classDict.Keys)
-		{
-			var data = classDict[key].AsGodotDictionary();
-			var classData = new Class
-			{
-				Id = key.ToString(),
-				Name = data["name"].ToString(),
-				BaseStats = ParseStats(data["baseStats"].AsGodotDictionary())
-			};
-			allClasses.Add(classData);
-		}
-		GD.Print($"Loaded {allClasses.Count} classes");
-	}
-	
-	private void LoadSubclasses()
-	{
-		var subclassFile = FileAccess.Open("res://src/Data/subclasses.json", FileAccess.ModeFlags.Read);
-		var subclassJson = subclassFile.GetAsText();
-		subclassFile.Close();
-		
-		var subclassDict = Json.ParseString(subclassJson).AsGodotDictionary();
-		
-		foreach (var key in subclassDict.Keys)
-		{
-			var data = subclassDict[key].AsGodotDictionary();
-			var subclass = new Subclass
-			{
-				Id = key.ToString(),
-				Name = data["name"].ToString(),
-				ParentClassId = data["parentClass"].ToString(),
-				StatModifiers = ParseStats(data["statModifiers"].AsGodotDictionary())
-			};
-			allSubclasses.Add(subclass);
-		}
-		GD.Print($"Loaded {allSubclasses.Count} subclasses");
-	}
-	
-	private Stats ParseStats(Godot.Collections.Dictionary statsDict)
-	{
-		return new Stats
-		{
-			Atk = statsDict["atk"].AsInt32(),
-			Def = statsDict["def"].AsInt32(),
-			Mgc = statsDict["mgc"].AsInt32()
-		};
-	}
-	
 	private void OnCreatePawn()
 	{
+		if (allRaces == null || allTraits == null || allClasses == null || allSubclasses == null || allNames.Count == 0)
+		{
+			GD.PrintErr("Data not loaded yet!");
+			return;
+		}
+		
 		var random = new Random();
 		
+		// Get random values from dictionaries
 		var randomName = allNames[random.Next(allNames.Count)];
+		var randomRace = allRaces.Values.ElementAt(random.Next(allRaces.Count));
+		var randomTrait = allTraits.Values.ElementAt(random.Next(allTraits.Count));
 		
-		var randomRace = allRaces[random.Next(allRaces.Count)];
+		// Filter out "special" class if it exists
+		var validClasses = allClasses.Values.Where(c => c.Id != "special").ToList();
+		if (validClasses.Count == 0)
+		{
+			GD.PrintErr("No valid classes found!");
+			return;
+		}
+		var randomClass = validClasses[random.Next(validClasses.Count)];
 		
-		var randomTrait = allTraits[random.Next(allTraits.Count)];
+		// Get valid subclasses for the chosen class
+		var validSubclasses = allSubclasses.Values.Where(s => s.ParentClassId == randomClass.Id).ToList();
 		
-		var randomClass = allClasses[random.Next(allClasses.Count)];
+		if (validSubclasses.Count == 0)
+		{
+			GD.PrintErr($"No subclasses found for class {randomClass.Name}");
+			return;
+		}
 		
-		var validSubclasses = allSubclasses.Where(s => s.ParentClassId == randomClass.Id).ToList();
 		var randomSubclass = validSubclasses[random.Next(validSubclasses.Count)];
 		
 		currentPawn = new Pawn(
@@ -186,19 +127,23 @@ public partial class RandomPawn : Node2D
 			GD.Print("No pawn to save!");
 			return;
 		}
-		var savePath = "res://pawns.json";
+		
+		var savePath = "user://pawns.json"; // Changed to user:// for writable directory
 		var allPawns = new Godot.Collections.Dictionary();
 		
-		if (FileAccess.FileExists(savePath))
+		if (Godot.FileAccess.FileExists(savePath))
 		{
-			var loadFile = FileAccess.Open(savePath, FileAccess.ModeFlags.Read);
-			var existingJson = loadFile.GetAsText();
-			loadFile.Close();
-			
-			var parsed = Json.ParseString(existingJson);
-			if (parsed.VariantType != Variant.Type.Nil)
+			var loadFile = Godot.FileAccess.Open(savePath, Godot.FileAccess.ModeFlags.Read);
+			if (loadFile != null)
 			{
-				allPawns = parsed.AsGodotDictionary();
+				var existingJson = loadFile.GetAsText();
+				loadFile.Close();
+				
+				var parsed = Json.ParseString(existingJson);
+				if (parsed.VariantType != Variant.Type.Nil)
+				{
+					allPawns = parsed.AsGodotDictionary();
+				}
 			}
 		}
 		
@@ -217,7 +162,7 @@ public partial class RandomPawn : Node2D
 		allPawns[currentPawn.Id] = pawnData;
 		
 		var json = Json.Stringify(allPawns, "\t");
-		var saveFile = FileAccess.Open(savePath, FileAccess.ModeFlags.Write);
+		var saveFile = Godot.FileAccess.Open(savePath, Godot.FileAccess.ModeFlags.Write);
 		if (saveFile == null)
 		{
 			GD.PrintErr($"Failed to write to file: {savePath}");

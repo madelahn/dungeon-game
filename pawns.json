@@ -1,8 +1,19 @@
 {
+	"0e1962d3-e4a8-48b5-ab00-2b0755f11a46": {
+		"classId": "rogue",
+		"id": "0e1962d3-e4a8-48b5-ab00-2b0755f11a46",
+		"level": 1,
+		"name": "Gumser",
+		"raceId": "dwarf",
+		"status": "Neutral",
+		"subclassId": "thief",
+		"team": "none",
+		"traitId": "stinky"
+	},
 	"4849d159-5939-41f5-a1a3-94f991db7972": {
 		"classId": "mage",
 		"id": "4849d159-5939-41f5-a1a3-94f991db7972",
-		"level": 1,
+		"level": 1.0,
 		"name": "Heise",
 		"raceId": "elf",
 		"status": "Neutral",

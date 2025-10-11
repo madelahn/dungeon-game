@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://dafqri5veorht"]
 
-[ext_resource type="Script" uid="uid://c7ekfv4atpuyo" path="res://src/Scenes/RandomPawn.cs" id="1_tyyk4"]
+[ext_resource type="Script" uid="uid://dpkhx1dn3fl0j" path="res://src/Scenes/RandomPawn.cs" id="1_aom1v"]
 
 [sub_resource type="Theme" id="Theme_sy58b"]
 RichTextLabel/font_sizes/bold_font_size = 32
 RichTextLabel/font_sizes/normal_font_size = 24
 
 [node name="random_pawn" type="Node2D"]
-script = ExtResource("1_tyyk4")
+script = ExtResource("1_aom1v")
 
 [node name="create_pawn" type="Button" parent="."]
 offset_left = 348.0
@@ -53,11 +53,27 @@ bbcode_enabled = true
 text = "[b]Trait:"
 scroll_active = false
 
+[node name="Trait2" type="RichTextLabel" parent="."]
+offset_left = 746.0
+offset_top = 223.0
+offset_right = 1046.0
+offset_bottom = 274.0
+theme = SubResource("Theme_sy58b")
+bbcode_enabled = true
+text = "[b]Class:"
+scroll_active = false
+
 [node name="generated_name" type="RichTextLabel" parent="."]
 offset_left = 67.0
 offset_top = 268.0
 offset_right = 413.0
 offset_bottom = 329.0
+
+[node name="generated_class" type="RichTextLabel" parent="."]
+offset_left = 746.0
+offset_top = 274.0
+offset_right = 1092.0
+offset_bottom = 335.0
 
 [node name="generated_trait" type="RichTextLabel" parent="."]
 offset_left = 76.0

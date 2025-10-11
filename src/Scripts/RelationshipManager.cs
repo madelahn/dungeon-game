@@ -26,7 +26,6 @@ public partial class RelationshipManager : Node
 	public void ChangeRelationship(string pawn1, string pawn2, int affinityChange) {
 		var key = MakeKey(pawn1, pawn2);
 		if (relationships.ContainsKey(key)) {
-			// Get the current data, modify it, then put it back
 			var data = relationships[key];
 			data.Affinity += affinityChange;
 			relationships[key] = data;
